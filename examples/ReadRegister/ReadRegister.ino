@@ -1,4 +1,4 @@
-#include <SIC45x.h>>
+#include <SIC45x.h>
 
 // For the correct macro, please check the datasheet!
 uint8_t pmbAddress = SIC45X_PMB_ADDR1_10_0;
