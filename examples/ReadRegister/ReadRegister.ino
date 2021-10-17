@@ -6,11 +6,11 @@ uint8_t pmbAddress = SIC45X_PMB_ADDR1_10_0;
 void setup() {
 	Serial.begin(9600);
 
-	PMB_init();
+	PMBus_init();
 }
 
 void loop() {
-	uint16_t deviceID = PMB_read16BitRegister(pmbAddress, SIC45X_IC_DEVICE_ID_ADDR);
+	uint16_t deviceID = PMBus_read16BitRegister(pmbAddress, SIC45X_IC_DEVICE_ID_ADDR);
 
 	Serial.print("Device ID: ");
 	Serial.println(deviceID);

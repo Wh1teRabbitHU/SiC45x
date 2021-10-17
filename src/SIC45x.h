@@ -1,7 +1,7 @@
 #ifndef SIC45x_Header
 #define SIC45x_Header
 
-#include <PMB.h>
+#include <PMBus.h>
 
 // IC addresses - Address pin is low
 #define SIC45X_PMB_ADDR0_0_845				0b0010000

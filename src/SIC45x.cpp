@@ -1,8 +1,8 @@
 #include "SIC45x.h"
 
 double SIC45X_parseLinear11(uint16_t rawValue) {
-	uint16_t exponent = (rawValue >> 11) & 0b1111;
-	uint8_t  exponentSign = rawValue >> 15;
+	uint8_t exponent = (rawValue >> 11) & 0b1111;
+	uint8_t exponentSign = rawValue >> 15;
 
 	if (exponentSign) {
 		exponent = -1 * (exponent ^ 0b1111) - 1;
