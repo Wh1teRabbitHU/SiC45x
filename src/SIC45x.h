@@ -1,7 +1,7 @@
 #ifndef SIC45x_Header
 #define SIC45x_Header
 
-#include <I2C_8Bit.h>
+#include <PMB.h>
 
 // IC addresses - Address pin is low
 #define SIC45X_PMB_ADDR0_0_845				0b0010000
@@ -105,9 +105,6 @@
 #define SIC45X_MFR_BASE_ADDRESS_ADDR		0xD7
 #define SIC45X_MFR_BASE_ADDRESS_2_ADDR		0xE2
 
-uint8_t SIC45X_readRegister(uint8_t pmbAddr, uint8_t registerAddr);
-void SIC45X_writeRegister(uint8_t pmbAddr, uint8_t registerAddr, uint8_t data);
-uint8_t SIC45X_readFlag(uint8_t pmbAddr, uint8_t registerAddr, uint8_t flagPos);
-void SIC45X_writeFlag(uint8_t pmbAddr, uint8_t registerAddr, uint8_t flagPos, uint8_t data);
+double SIC45X_parseLinear11(uint16_t rawValue);
 
 #endif

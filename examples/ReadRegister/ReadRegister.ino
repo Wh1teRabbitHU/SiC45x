@@ -8,7 +8,7 @@ void setup() {
 }
 
 void loop() {
-	uint8_t deviceID = SIC45X_readRegister(pmbAddress, SIC45X_IC_DEVICE_ID_ADDR);
+	uint16_t deviceID = PMB_read16BitRegister(pmbAddress, SIC45X_IC_DEVICE_ID_ADDR);
 
 	Serial.print("Device ID: ");
 	Serial.println(deviceID);

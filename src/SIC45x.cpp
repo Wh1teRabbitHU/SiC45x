@@ -1,17 +1,13 @@
 #include "SIC45x.h"
 
-uint8_t SIC45X_readRegister(uint8_t pmbAddr, uint8_t registerAddr) {
-	return I2C_8Bit_readFromModule(pmbAddr, registerAddr);
-}
+double SIC45X_parseLinear11(uint16_t rawValue) {
+  uint16_t exp_val = (rawValue >> 11) & 0b1111;
+  uint8_t exp_sign =  rawValue >> 15;
+  uint16_t mant_val = rawValue & 1023;
+  uint8_t mant_sign = (rawValue >> 10) & 1;
 
-void SIC45X_writeRegister(uint8_t pmbAddr, uint8_t registerAddr, uint8_t data) {
-	I2C_8Bit_writeToModule(pmbAddr, registerAddr, data);
-}
+  int16_t exponencial = (exp_sign ? -1 : 1) * exp_val;
+  int16_t mantissa = (mant_sign ? -1 : 1) * mant_val;
 
-uint8_t SIC45X_readFlag(uint8_t pmbAddr, uint8_t registerAddr, uint8_t flagPos) {
-	return I2C_8Bit_readFlag(pmbAddr, registerAddr, flagPos);
-}
-
-void SIC45X_writeFlag(uint8_t pmbAddr, uint8_t registerAddr, uint8_t flagPos, uint8_t data) {
-	I2C_8Bit_writeFlag(pmbAddr, registerAddr, flagPos, data);
+  return pow(2, exponencial) * mantissa;
 }
