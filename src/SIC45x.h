@@ -106,5 +106,6 @@
 #define SIC45X_MFR_BASE_ADDRESS_2_ADDR		0xE2
 
 double SIC45X_parseLinear11(uint16_t rawValue);
+double SIC45X_parseLinear11(uint8_t exponent, uint16_t rawValue);
 
 #endif
