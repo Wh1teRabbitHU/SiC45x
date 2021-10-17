@@ -5,6 +5,8 @@ uint8_t pmbAddress = SIC45X_PMB_ADDR1_10_0;
 
 void setup() {
 	Serial.begin(9600);
+
+	PMB_init();
 }
 
 void loop() {

@@ -1,5 +1,9 @@
 #include "PMB.h"
 
+void PMB_init() {
+	Wire.begin();
+}
+
 uint8_t PMB_read8BitRegister(uint8_t deviceAddress, uint8_t registerAddress) {
   Wire.beginTransmission(deviceAddress);
   Wire.write(registerAddress);

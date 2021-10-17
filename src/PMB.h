@@ -4,6 +4,8 @@
 #include "Arduino.h"
 #include "Wire.h"
 
+void PMB_init();
+
 uint8_t PMB_read8BitRegister(uint8_t deviceAddress, uint8_t registerAddress);
 uint16_t PMB_read16BitRegister(uint8_t deviceAddress, uint8_t registerAddress);
 
