@@ -164,6 +164,94 @@
 #define SIC45X_MFR_BASE_ADDRESS_DEF_VAL			0x10
 #define SIC45X_MFR_BASE_ADDRESS_2_DEF_VAL		0x50
 
+typedef struct SIC45X_Operation_Config_t {
+	uint8_t onOff;
+	uint8_t offB;
+	uint8_t margin;
+	uint8_t marginFault;
+} SIC45X_Operation_Config_t;
+
+typedef struct SIC45X_OnOff_Config_t {
+	uint8_t powerUp;
+	uint8_t command;
+	uint8_t enable;
+	uint8_t enablePolarity;
+	uint8_t offB1;
+} SIC45X_OnOff_Config_t;
+
+typedef struct SIC45X_Capability_Data_t {
+	uint8_t packetErrorChecking;
+	uint8_t busSpeed;
+	uint8_t alert;
+	uint8_t numericFormat;
+	uint8_t avsBusSupported;
+} SIC45X_Capability_Data_t;
+
+typedef struct SIC45X_FaultResponse_Data_t {
+	uint8_t rsp;
+	uint8_t retry;
+	uint8_t delay;
+	uint8_t cycle;
+} SIC45X_FaultResponse_Data_t;
+
+typedef struct SIC45X_Status_Data_t {
+	uint8_t busy;
+	uint8_t off;
+	uint8_t voutOverVoltageFault;
+	uint8_t voutOverCurrentFault;
+	uint8_t vinUnderVoltageFault;
+	uint8_t temperatureFault;
+	uint8_t comMemLogicFault;
+	uint8_t miscFault;
+	uint8_t voutFault;
+	uint8_t ioutPoutFault;
+	uint8_t inputFault;
+	uint8_t manufacturerFault;
+	uint8_t powerGood;
+} SIC45X_Status_Data_t;
+
+typedef struct SIC45X_StatusVout_Data_t {
+	uint8_t overVoltageFault;
+	uint8_t overVoltageWarning;
+	uint8_t underVoltageWarning;
+	uint8_t underVoltageFault;
+	uint8_t voltageMaxMinWarning;
+	uint8_t timeOnMaxFault;
+	uint8_t timeOffMaxWarning;
+} SIC45X_StatusVout_Data_t;
+
+typedef struct SIC45X_StatusIout_Data_t {
+	uint8_t overCurrentFault;
+	uint8_t overCurrentWarning;
+} SIC45X_StatusIout_Data_t;
+
+typedef struct SIC45X_StatusInput_Data_t {
+	uint8_t overVoltageFault;
+	uint8_t underVoltageWarning;
+	uint8_t insufficientVoltage;
+	uint8_t overCurrentWarning;
+} SIC45X_StatusInput_Data_t;
+
+typedef struct SIC45X_StatusTemperature_Data_t {
+	uint8_t overTemperatureFault;
+	uint8_t overTemperatureWarning;
+} SIC45X_StatusTemperature_Data_t;
+
+typedef struct SIC45X_StatusCML_Data_t {
+	uint8_t invalidCommand;
+	uint8_t invalidData;
+	uint8_t packetError;
+	uint8_t memoryFault;
+	uint8_t communicationFault;
+} SIC45X_StatusCML_Data_t;
+
+typedef struct SIC45X_StatusMFR_Data_t {
+	uint8_t ilMasterFault;
+	uint8_t yfVerifyFault;
+	uint8_t yfEraseFault;
+	uint8_t yfPgmFault;
+} SIC45X_StatusMFR_Data_t;
+
 double SIC45X_parseLinear11(uint16_t rawValue);
 double SIC45X_parseLinear11(uint8_t exponent, uint16_t rawValue);
 
