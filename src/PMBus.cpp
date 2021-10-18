@@ -44,7 +44,6 @@ uint16_t PMBus_read16BitRegister(uint8_t deviceAddress, uint8_t registerAddress)
 void PMBus_write8BitRegister(uint8_t deviceAddress, uint8_t registerAddress, uint8_t data) {
 	Wire.beginTransmission(deviceAddress);
 	Wire.write(registerAddress);
-	Wire.endTransmission(false);
 	Wire.write(data);
 	Wire.endTransmission(true);
 }
@@ -55,9 +54,7 @@ void PMBus_write16BitRegister(uint8_t deviceAddress, uint8_t registerAddress, ui
 
 	Wire.beginTransmission(deviceAddress);
 	Wire.write(registerAddress);
-	Wire.endTransmission(false);
 	Wire.write(lByte);
-	Wire.endTransmission(false);
 	Wire.write(hByte);
 	Wire.endTransmission(true);
 }
